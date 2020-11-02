@@ -15,12 +15,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure Doxygen
-        run: sed -i -e "s|@PROJECT_SOURCE_DIR@|$GITHUB_WORKSPACE/ODLA/include/ODLA|g" -e 's|@CMAKE_BINARY_DIR@|${{runner.workspace}}/odla_docs|g' $GITHUB_WORKSPACE/ODLA/Doxyfile
+        run: sed -i -e "s|@PROJECT_SOURCE_DIR@|/github/workspace/ODLA/include/ODLA|g" -e 's|@CMAKE_BINARY_DIR@|/github/workspace/odla_docs|g' $GITHUB_WORKSPACE/ODLA/Doxyfile
       - name: Build HTML
         uses: mattnotmitt/doxygen-action@v1
         with:
-          #working-directory: "odla_docs"
-          doxyfile-path: "$GITHUB_WORKSPACE/ODLA/Doxyfile"
+          working-directory: "${{runner.workspace}}/odla_docs"
+          doxyfile-path: "/github/workspace/ODLA/Doxyfile"
           #enable-latex: true
       - name: Publish
-        run: ls ${{runner.workspace}}/odla_docs
+        run: ls $GITHUB_WORKSPACE/odla_docs
