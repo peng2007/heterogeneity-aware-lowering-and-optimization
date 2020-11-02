@@ -3,7 +3,7 @@ name: Generate API docs
 on:
   push:
     branches:
-      - main
+      - ci_test
   pull_request: # for testing
   release:
     types: [published]
