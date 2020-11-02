@@ -15,4 +15,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure Doxygen
-      - run: sed -i -e 's/@PROJECT_SOURCE_DIR@/..' ${{runner.workspace}}/ODLA/Doxyfile
+        run: sed -i -e 's/@PROJECT_SOURCE_DIR@/..' ${{runner.workspace}}/ODLA/Doxyfile
