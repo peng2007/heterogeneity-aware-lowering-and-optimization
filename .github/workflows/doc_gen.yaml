@@ -15,12 +15,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure Doxygen
-        run: sed -i -e 's/@PROJECT_SOURCE_DIR@/../g' ${{github_workspace}}/ODLA/Doxyfile
+        run: sed -i -e 's/@PROJECT_SOURCE_DIR@/../g' $GITHUB_WORKSPACE/ODLA/Doxyfile
       - name: Build HTML
         uses: mattnotmitt/doxygen-action@v1
         with:
           working-directory: "odla_docs"
-          doxyfile-path: "${{github_workspace}}/ODLA/Doxyfile"
+          doxyfile-path: "$GITHUB_WORKSPACE/ODLA/Doxyfile"
           enable-latex: true
       - name: Publish
         run: ls ${{runner.workspace}}/odla_docs
