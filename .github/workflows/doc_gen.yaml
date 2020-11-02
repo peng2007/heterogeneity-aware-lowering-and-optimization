@@ -19,8 +19,8 @@ jobs:
       - name: Build HTML
         uses: mattnotmitt/doxygen-action@v1
         with:
-          working-directory: "${{runner.workspace}}/odla_docs"
-          doxyfile-path: "/github/workspace/ODLA/Doxyfile"
+          working-directory: "/github/workspace"
+          doxyfile-path: "ODLA/Doxyfile"
           #enable-latex: true
       - name: Publish
         run: ls $GITHUB_WORKSPACE/odla_docs
