@@ -24,7 +24,7 @@ jobs:
         with:
           working-directory: "/github/workspace"
           doxyfile-path: "ODLA/Doxyfile"
-          enable-latex: false
+          enable-latex: true
       - name: Publish
         #run: ls $GITHUB_WORKSPACE/odla_docs
         uses: peaceiris/actions-gh-pages@v3
