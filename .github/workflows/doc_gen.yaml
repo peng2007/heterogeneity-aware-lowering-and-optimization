@@ -15,7 +15,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure Doxygen
-        run: sed -i -e "s|@PROJECT_SOURCE_DIR@|/github/workspace|g" -e 's|@CMAKE_BINARY_DIR@|/github/workspace/odla_docs|g' $GITHUB_WORKSPACE/ODLA/Doxyfile
+        run: |
+          mkdir -p $GITHUB_WORKSPACE/odla_docs
+          sed -i -e 's|@PROJECT_SOURCE_DIR@|/github/workspace|g' -e 's|@CMAKE_BINARY_DIR@|/github/workspace|g' $GITHUB_WORKSPACE/ODLA/Doxyfile
       - name: Build HTML
         uses: mattnotmitt/doxygen-action@v1
         with:
